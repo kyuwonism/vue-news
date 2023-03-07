@@ -5,10 +5,10 @@
         </div>
         <div class="user-description">
           <div>
-            {{ userInfo.id }}
+            {{ info.id }}
           </div>
           <div class="time">
-            {{ userInfo.created}}
+            {{ info.created}}
           </div>
         </div>
       </div>
@@ -16,10 +16,8 @@
 
 <script>
 export default {
-  computed: {
-    userInfo() {
-      return this.$store.state.user;
-    }
+  props: {
+    info: Object
   },
 }
 </script>
