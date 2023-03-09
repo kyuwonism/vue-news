@@ -2,7 +2,11 @@
   <div>
     <section>
       <!-- 질문 -->
-      <div class="user-container">
+      <user-profile :info=fetchedItem>
+        <template v-slot:username>{{ fetchedItem.user }}</template>
+        <template v-slot:time>{{ fetchedItem.time_ago }}</template>
+      </user-profile>
+      <!-- <div class="user-container">
         <div>
           <i class="fas fa-user"></i>
         </div>
@@ -14,22 +18,28 @@
             {{ itemInfo.time_ago }}
           </div>
         </div>
-      </div>
-      <h2>{{ itemInfo.title }}</h2>
+      </div> -->
+    </section>
+    <section>
+      <h2>{{ fetchedItem.title }}</h2>
     </section>
     <section>
       <!-- 질문댓글 -->
-      <div v-html="itemInfo.content"></div>
+      <div v-html="fetchedItem.content"></div>
     </section>
   </div>
 </template>
 
 <script>
+import UserProfile from "../components/UserProfile.vue";
+import { mapGetters } from 'vuex';
+
 export default {
+  component: {
+    UserProfile,
+  },
   computed: {
-    itemInfo() {
-      return this.$store.state.items;
-    }
+    ...mapGetters(['fetchedItem']),
   },
   created() {
     const itemId = this.$route.params.id;

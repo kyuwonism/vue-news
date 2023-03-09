@@ -13,6 +13,9 @@ export const store = createStore({
     getters: {
       fetchedAsk(state) {
         return state.asks;
+      },
+      fetchedItem(state) {
+        return state.items;
       }
     },
     mutations,

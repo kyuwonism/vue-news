@@ -41,6 +41,7 @@ export default {
   FETCH_ITEM({ commit }, itemId) {
     fetchItemInfo(itemId)
     .then(({ data }) => {
+      console.debug(data);
       commit('SET_ITEM', data);
     })
     .catch()
