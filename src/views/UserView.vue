@@ -1,9 +1,10 @@
 <template>
   <div>
-    <user-profile :info="userInfo"></user-profile>
-    <!-- <p>name : {{ userInfo.id }}</p>
-    <p>karma : {{ userInfo.karma }}</p>
-    <p>created : {{ userInfo.created }}</p> -->
+    <user-profile :info="userInfo">
+        <template v-slot:username>{{ userInfo.id }}</template>
+        <template v-slot:time><span>{{ 'Joined ' + userInfo.created }}, </span></template>
+        <template v-slot:karma><span>{{ userInfo.karma }}</span></template>
+    </user-profile>
   </div>
 </template>
 

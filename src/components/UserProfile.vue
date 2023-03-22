@@ -10,13 +10,14 @@
             </slot>
             
             <div class="time">
-              time : {{ info.created}}
+              <!-- time : {{ info.created}} -->
               <slot name="time">
                 <!-- 상위 컴포넌트에서 정의할  -->
               </slot>
-              </div>
-          </div>
-      </div>
+              <slot name="karma"></slot>
+            </div>
+        </div>
+    </div>
 </template>
 
 <script>
