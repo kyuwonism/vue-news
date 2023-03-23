@@ -4,15 +4,20 @@
     <transition name="page">
       <router-view></router-view>
     </transition>
+
+    <spinner-bar :loading=true></spinner-bar>
+
   </div>
 </template>
 
 <script>
-import ToolbarArea from './components/ToolbarArea.vue'
+import ToolbarArea from './components/ToolbarArea.vue';
+import SpinnerBar from './components/SpinnerBar.vue';
 
 export default {
   components: {
-    ToolbarArea
+    ToolbarArea,
+    SpinnerBar
   }
 }
 </script>
