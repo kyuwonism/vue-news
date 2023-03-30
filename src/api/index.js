@@ -1,8 +1,19 @@
 import axios from 'axios';
+import { store } from '../store/index.js';
 
 const config = {
     baseUrl: 'https://api.hnpwa.com/v0/'
 }
+
+axios.interceptors.request.use(config => {
+    store.commit('LOADING_STATUS', true);
+    return config;
+});
+
+axios.interceptors.response.use( config => {
+    store.commit('LOADING_STATUS', false);
+    return config;
+})
 
 /**
  * 뉴스 리스트 불러오기

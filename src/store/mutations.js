@@ -13,5 +13,8 @@ export default {
   },
   SET_ITEM(state, item) {
     state.items = item
+  },
+  LOADING_STATUS (state, loadingStatus) {
+    state.loadingStatus = loadingStatus
   }
 }

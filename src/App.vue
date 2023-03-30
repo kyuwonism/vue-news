@@ -5,7 +5,7 @@
       <router-view></router-view>
     </transition>
 
-    <spinner-bar :loading=true></spinner-bar>
+    <spinner-bar :loading="this.$store.state.loadingStatus" ></spinner-bar>
 
   </div>
 </template>
@@ -13,11 +13,21 @@
 <script>
 import ToolbarArea from './components/ToolbarArea.vue';
 import SpinnerBar from './components/SpinnerBar.vue';
-
+// import { bus } from './utils/bus.js';
 export default {
   components: {
     ToolbarArea,
     SpinnerBar
+  },
+  data() {
+    return {
+      loadingStatus: false
+    };
+  },
+  methods: {
+
+  },
+  created() {
   }
 }
 </script>

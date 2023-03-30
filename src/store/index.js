@@ -8,7 +8,8 @@ export const store = createStore({
       asks: [],
       jobs: [],
       user: {},
-      items: {}
+      items: {},
+      loadingStatus: false,
     },
     getters: {
       fetchedAsk(state) {
