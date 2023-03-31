@@ -10,6 +10,7 @@ export const store = createStore({
       user: {},
       items: {},
       loadingStatus: false,
+      list: [],
     },
     getters: {
       fetchedAsk(state) {
