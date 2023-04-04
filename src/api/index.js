@@ -20,14 +20,19 @@ axios.interceptors.response.use( config => {
  * 
  * @returns 
  */
-const fetchNewsList = () => { return axios.get(`${ config.baseUrl }news/1.json`)  }
+const fetchNewsList = () => { 
+    return axios.get(`${ config.baseUrl }news/1.json`) 
+ }
 
 /**
  * 구인리스트 가져오기
  * 
  * @returns 
  */
-const fetchJobsList = () => { return axios.get(`${ config.baseUrl }jobs/1.json`) }
+const fetchJobsList = () => { 
+    console.log('api index.js ==> ' + config.baseUrl )
+    return axios.get(`${ config.baseUrl }jobs/1.json`) 
+}
 
 /**
  * 질문리스트 가져오기
@@ -40,7 +45,13 @@ const fetchUserInfo = username => { return axios.get(`${ config.baseUrl }user/${
 
 const fetchItemInfo = itemId => { return axios.get(`${ config.baseUrl }item/${ itemId }.json`) }
 
-const fetchList = pageName => { return axios.get(`${config.baseUrl}${pageName}/1.json`)  }
+async function fetchList(pageName) { 
+    try {
+        return await axios.get(`${config.baseUrl}${pageName}/1.json`)
+    } catch(error) {
+        console.log(error);
+    }
+}
 
 export {
     fetchNewsList,

@@ -41,7 +41,7 @@
 export default {
   computed: {
     listItems() {
-      console.log('where am i ===> ' + this.$route.name);
+      console.log(this.$store.state)
       return this.$store.state.list;
     }
   }
